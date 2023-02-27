@@ -9,7 +9,7 @@ of React Context API through the usage of the patterns:
 - [Hooks](https://www.patterns.dev/posts/hooks-pattern/)
 - [Provider](https://www.patterns.dev/posts/provider-pattern/)
 
-Such concepts are presented by developing a the 'Dark Mode' Functionality
+Such concepts are presented by developing the 'Dark Mode' Functionality
 
 # Frontend Tooling
 
