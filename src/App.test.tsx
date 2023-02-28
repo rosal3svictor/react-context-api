@@ -46,7 +46,7 @@ describe('Change Theme Functionality Is Working Properly', () => {
       expect(button).toHaveTextContent('Change to light theme');
     });
 
-    it('Click the button again, theme is set back to "light"', async () => {
+    it('Clicks the button again, theme is set back to "light"', async () => {
       performRender();
       const user = userEvent.setup();
       const button = screen.getByRole('button');
