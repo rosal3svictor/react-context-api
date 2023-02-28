@@ -39,6 +39,9 @@ describe('Change Theme Functionality Is Working Properly', () => {
       expect(mainContainer).toHaveClass('dark-theme');
     });
 
+    const image = screen.getByRole('img', { name: 'dark' });
+    expect(image).toBeInTheDocument();
+
     expect(button).toHaveTextContent('Change to light theme');
   });
 
@@ -53,6 +56,9 @@ describe('Change Theme Functionality Is Working Properly', () => {
       const mainContainer = screen.getByTestId('main-container');
       expect(mainContainer).toHaveClass('light-theme');
     });
+
+    const image = screen.getByRole('img', { name: 'light' });
+    expect(image).toBeInTheDocument();
 
     expect(button).toHaveTextContent('Change to dark theme');
   });
