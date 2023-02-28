@@ -5,7 +5,7 @@ import App from './App';
 const performRender = () => render(<App />);
 
 describe('Change Theme Functionality Is Working Properly', () => {
-  describe('Conditions when app is launched', () => {
+  describe('When app is launched', () => {
     it('The main app container is defined with "light theme" by default', () => {
       performRender();
       const mainContainer = screen.getByTestId('main-container');
@@ -27,39 +27,41 @@ describe('Change Theme Functionality Is Working Properly', () => {
     });
   });
 
-  it('When button is clicked, theme is set to "dark"', async () => {
-    performRender();
-    const user = userEvent.setup();
-    const button = screen.getByRole('button');
+  describe('When the user', () => {
+    it('Clicks the button, theme is set to "dark"', async () => {
+      performRender();
+      const user = userEvent.setup();
+      const button = screen.getByRole('button');
 
-    user.click(button);
+      user.click(button);
 
-    await waitFor(() => {
-      const mainContainer = screen.getByTestId('main-container');
-      expect(mainContainer).toHaveClass('dark-theme');
+      await waitFor(() => {
+        const mainContainer = screen.getByTestId('main-container');
+        expect(mainContainer).toHaveClass('dark-theme');
+      });
+
+      const image = screen.getByRole('img', { name: 'dark' });
+      expect(image).toBeInTheDocument();
+
+      expect(button).toHaveTextContent('Change to light theme');
     });
 
-    const image = screen.getByRole('img', { name: 'dark' });
-    expect(image).toBeInTheDocument();
+    it('Click the button again, theme is set back to "light"', async () => {
+      performRender();
+      const user = userEvent.setup();
+      const button = screen.getByRole('button');
 
-    expect(button).toHaveTextContent('Change to light theme');
-  });
+      user.click(button);
 
-  it('When button is clicked again, theme is set back to "light"', async () => {
-    performRender();
-    const user = userEvent.setup();
-    const button = screen.getByRole('button');
+      await waitFor(() => {
+        const mainContainer = screen.getByTestId('main-container');
+        expect(mainContainer).toHaveClass('light-theme');
+      });
 
-    user.click(button);
+      const image = screen.getByRole('img', { name: 'light' });
+      expect(image).toBeInTheDocument();
 
-    await waitFor(() => {
-      const mainContainer = screen.getByTestId('main-container');
-      expect(mainContainer).toHaveClass('light-theme');
+      expect(button).toHaveTextContent('Change to dark theme');
     });
-
-    const image = screen.getByRole('img', { name: 'light' });
-    expect(image).toBeInTheDocument();
-
-    expect(button).toHaveTextContent('Change to dark theme');
   });
 });
