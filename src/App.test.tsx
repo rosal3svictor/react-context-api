@@ -1,10 +1,10 @@
 import userEvent from '@testing-library/user-event';
-import { render, screen } from './utils';
+import { render, screen, waitFor } from './utils';
 import App from './App';
 
-describe('Change Theme Functionality Is Working Properly', () => {
-  const performRender = () => render(<App />);
+const performRender = () => render(<App />);
 
+describe('Change Theme Functionality Is Working Properly', () => {
   describe('Conditions when app is launched', () => {
     it('The main app container is defined with "light theme" by default', () => {
       performRender();
@@ -27,11 +27,32 @@ describe('Change Theme Functionality Is Working Properly', () => {
     });
   });
 
-  it('When button is clicked, theme is set to dark', () => {
+  it('When button is clicked, theme is set to "dark"', async () => {
     performRender();
     const user = userEvent.setup();
     const button = screen.getByRole('button');
+
     user.click(button);
+
+    await waitFor(() => {
+      const mainContainer = screen.getByTestId('main-container');
+      expect(mainContainer).toHaveClass('dark-theme');
+    });
+
+    expect(button).toHaveTextContent('Change to light theme');
+  });
+
+  it('When button is clicked again, theme is set back to "light"', async () => {
+    performRender();
+    const user = userEvent.setup();
+    const button = screen.getByRole('button');
+
+    user.click(button);
+
+    await waitFor(() => {
+      const mainContainer = screen.getByTestId('main-container');
+      expect(mainContainer).toHaveClass('light-theme');
+    });
 
     expect(button).toHaveTextContent('Change to dark theme');
   });
