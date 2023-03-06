@@ -23,6 +23,6 @@ Such concepts are presented by developing the 'Dark Mode' Functionality
 
 # How to use it
 
-1. Install pnpm globally in your machine ([Refer to the docs](https://pnpm.io/installation)).
-2. Execute `pnpm run ci` to perform the instalation of all dependencies.
+1. Install pnpm globally in your machine. ([See the official docs](https://pnpm.io/installation))
+2. Execute `pnpm run ci` to perform the instalation of all dependencies. (Read [this reference](https://betterprogramming.pub/npm-ci-vs-npm-install-which-should-you-use-in-your-node-js-projects-51e07cb71e26) for more details)
 3. Execute `pnpm run dev`, and immediately you will see the vite server running.
