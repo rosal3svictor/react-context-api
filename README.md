@@ -1,6 +1,6 @@
 <div align="center">
-    <img src="./public/react-typescript-logo.png" width="50%" />
-    <h1> React Context API </h1>
+    <img src="./public/repo-logo.png" width="70%" />
+    <h1> React-TypeScript 'Dark Mode' Sample </h1>
 </div>
 
 This repository was created with the intention of having a implementation sample
@@ -8,8 +8,6 @@ of React Context API through the usage of the patterns:
 
 - [Hooks](https://www.patterns.dev/posts/hooks-pattern/)
 - [Provider](https://www.patterns.dev/posts/provider-pattern/)
-
-Such concepts are presented by developing the 'Dark Mode' Functionality
 
 # Frontend Tooling
 
